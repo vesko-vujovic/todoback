@@ -2,9 +2,9 @@
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="http:////maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-<script type="text/javascript" src="jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.min.js"></script>
 <script type="text/javascript" src="http:////maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="todoback.js"></script>
+<script type="text/javascript" src="js/todoback.js"></script>
 <title>Todo</title>
 </head>
 <body>
