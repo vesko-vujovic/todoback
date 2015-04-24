@@ -10,9 +10,10 @@ class AjaxController extends \BaseController {
     {
         if(Request::ajax())
         {
-            $input = Input::get('input');
-            var_dump($input);
+            $input     = Input::get('input');
+            $returned  = Task::createRecord($input);
 
+            return Response::json($returned);
 
         }
 

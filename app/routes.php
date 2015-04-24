@@ -16,3 +16,12 @@ Route::get('/',['as' => 'home', 'uses' => 'HomeController@index']);
 Route::get('/ajax/post/data/',['as' => 'ajaxpost', 'uses' => 'AjaxController@postData']);
 
 Route::get('/ajax/get/data/',['as' => 'ajaxget', 'uses' => 'HomeController@getData']);
+
+Route::get('/test', function (){
+
+    $var = Task::all();
+
+    var_dump($var);
+
+
+});
