@@ -1,5 +1,4 @@
 <?php
-
 class AjaxController extends \BaseController {
 
 	/**
@@ -12,17 +11,10 @@ class AjaxController extends \BaseController {
         {
             $input     = Input::get('input');
             $taskObj   = new Task();
-            $taskObj   = $taskObj->createRecord($input);
-            if($taskObj['msg'] == 'OK')
-            {
-                $allTasks = Task::all();
-                return Response::json($allTasks);
-            }
-            else
-            {
-                return Response::json($taskObj);
-            }
+            $taskObj->createRecord($input);
+            $allRecord = Task::all();
 
+            return Response::json($allRecord);
         }
 
     }

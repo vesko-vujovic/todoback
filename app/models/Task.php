@@ -10,17 +10,6 @@ class Task extends \Eloquent {
         $record->text = $val;
         $record->save();
 
-        if(!$record->save())
-        {
-            $err_msg = array('msg' => 'Unable to create new task!');
-            return $err_msg;
-        }
-        else
-        {
-            $err_msg = array('msg' => 'OK!');
-            return $err_msg;
-
-        }
     }
 
 
