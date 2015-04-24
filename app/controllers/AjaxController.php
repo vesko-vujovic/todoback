@@ -11,9 +11,17 @@ class AjaxController extends \BaseController {
         if(Request::ajax())
         {
             $input     = Input::get('input');
-            $returned  = Task::createRecord($input);
-
-            return Response::json($returned);
+            $taskObj   = new Task();
+            $taskObj   = $taskObj->createRecord($input);
+            if($taskObj['msg'] == 'OK')
+            {
+                $allTasks = Task::all();
+                return Response::json($allTasks);
+            }
+            else
+            {
+                return Response::json($taskObj);
+            }
 
         }
 

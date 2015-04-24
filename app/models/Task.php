@@ -10,22 +10,18 @@ class Task extends \Eloquent {
         $record->text = $val;
         $record->save();
 
-        if($record->save())
-        {
-            $allTasks = getAllTasks();
-            return $allTasks;
-        }
-        else
+        if(!$record->save())
         {
             $err_msg = array('msg' => 'Unable to create new task!');
             return $err_msg;
         }
+        else
+        {
+            $err_msg = array('msg' => 'OK!');
+            return $err_msg;
+
+        }
     }
 
-    public function getAllTasks()
-    {
-        $allVal = Task::all();
-        return $allVal;
 
-    }
 }
