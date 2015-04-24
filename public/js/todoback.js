@@ -2,17 +2,17 @@ $(document).ready(function(){
     var input = $('#todo');
     var msg   = $('#danger').hide();
     var list  = $('#list');
-    var rows  = $('#list tr');
+    var rows  = $('tr td');
 
     // see if the field is empty
     function checkEmpty(event)
     {
-        var inputValue = input.val()
+        var inputValue = input.val();
         event.preventDefault();
         if( inputValue != '')
         {
             makeAjaxRequest(inputValue);
-            inputValue = '';
+            input.val('');
         }
         else
         {
@@ -25,7 +25,7 @@ $(document).ready(function(){
     function makeAjaxRequest(input)
     {
         var trimedInput = $.trim(input);
-
+        rows.remove();
         $.ajax({
             url: "/todoback/public/ajax/post/data",
             data: "input=" + trimedInput,
@@ -34,17 +34,16 @@ $(document).ready(function(){
             {
                 if(data.length == 0)
                 {
-                      list.append('<div class="alert alert-danger" role="alert">'+
+                      list.prepend('<div class="alert alert-danger" role="alert">'+
                                    '<strong> No tasks available! </strong>'+
                                    '</div>');
                 }
                 else
                 {
+                    $('#msg').hide();
                     $.each(data, function(index, value){
-                        rows.remove();
-                        list.append('<tr><td>'+ '<input type="checkbox" value='+ ''+ value.id +''+ '' + '</td>' +
+                        list.prepend('<tr><td>'+ '<input type="checkbox" value='+ ''+ value.id +''+ '' + '</td>' +
                             '<td>' + value.text + '</td>' + '<td><button type="button" class="btn btn-danger"> delete'+'</button></td></tr>'
-
                         );
                     })
                 }
@@ -55,16 +54,29 @@ $(document).ready(function(){
         });
     }
 
-
-
-
-
     //event on click
-
     $('#add').on('click', checkEmpty);
 
+    //on load event
+    $(function() {
+        $.getJSON("/todoback/public/ajax/get/data", {}, function(data) {
 
+            if(data.length == 0)
+            {
+                list.append('<div id="msg" class="alert alert-danger" role="alert">'+
+                '<strong> No tasks available! </strong>'+
+                '</div>');
+            }
+            else
+            {
+                $.each(data, function(index, value) {
+                    list.append('<tr><td>'+ '<input type="checkbox" value='+ ''+ value.id +''+ '' + '</td>' +
+                    '<td>' + value.text + '</td>' + '<td><button type="button" class="btn btn-danger"> delete'+'</button></td></tr>');
+                });
+            }
 
+        });
+    });
 
 
 });
