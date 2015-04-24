@@ -1,7 +1,7 @@
 $(document).ready(function(){
 
-    var input = $('#todo').hide();
-    var msg   = $('#danger');
+    var input = $('#todo');
+    var msg   = $('#danger').hide();
 
     // see if the field is empty
     function checkEmpty(event)
@@ -22,6 +22,21 @@ $(document).ready(function(){
     //make ajax call
     function makeAjaxRequest(input)
     {
+        var trimedInput = $.trim(input);
+
+        $.ajax({
+            url: "/todoback/public/ajax/post/data",
+            data: "input=" + trimedInput,
+            dataType: "json",
+            success: function(data)
+            {
+
+            }
+
+        });
+
+
+
 
     }
 

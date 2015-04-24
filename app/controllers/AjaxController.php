@@ -8,6 +8,13 @@ class AjaxController extends \BaseController {
 
     public function postData()
     {
+        if(Request::ajax())
+        {
+            $input = Input::get('input');
+            var_dump($input);
+
+
+        }
 
     }
 

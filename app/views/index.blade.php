@@ -14,7 +14,7 @@
    <div class="col-md-8">
     <h1> <strong>To Do App - Bild Studio</strong></h1>
     <div class="alert alert-danger" id="danger" role="alert"><strong>Please type something in the field!</strong></div>
-     <form action="" method="" class="form-inline">
+     <form action="" method="post" class="form-inline">
       <div class="form-group">
        <div class="input-group">
         <div class="input-group-addon"><span class="glyphicon glyphicon-floppy-save"></span></div>
