@@ -2,6 +2,7 @@ $(document).ready(function(){
 
     var input = $('#todo');
     var msg   = $('#danger').hide();
+    var list  = $('#list');
 
     // see if the field is empty
     function checkEmpty(event)
@@ -10,6 +11,7 @@ $(document).ready(function(){
         event.preventDefault();
         if( inputValue != '')
         {
+            inputValue.val('');
             makeAjaxRequest(inputValue);
         }
         else
@@ -30,17 +32,18 @@ $(document).ready(function(){
             dataType: "json",
             success: function(data)
             {
-                console.log(data);
+                $.each(data.pop(), function(index, value){
+                   list.append('<tr></tr><td>'+ '<input type="checkbox" value='+ ''+ value.id +''+ '' + '</td>' +
+                              '<td>' + value.text + '</td>' + '<td><button type="button" class="btn btn-danger"> delete'+'</button></td>'
 
-
+                   );
+                })
             }
 
         });
-
-
-
-
     }
+
+    $.
 
 
 

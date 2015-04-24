@@ -29,11 +29,15 @@
   <br><br><br>
   <!-- row for ul list elements -->
   <div class="row">
-   <div class="col-md-5">
-    <ul id="list">
-    </ul>
+   <div class="col-md-6">
+    <table class="table table-striped table-hover ">
+      <thead><th> Check</th> <th> Task</th> <th> Action</th></thead>
+      <tbody id="list">
+
+      </tbody>
+    </table>
     <br>
-       <p><button id="clear"> Clear finished </button></p>
+       <p><button type="button" class="btn btn-danger">Clear Finished</button></p>
    </div>
   </div>
 
