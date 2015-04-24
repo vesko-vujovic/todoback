@@ -21,6 +21,11 @@ class AjaxController extends \BaseController {
 
     public function getData()
     {
+        if(Request::ajax())
+        {
+            $allRecord = Task::all();
+            return Response::json($allRecord);
+        }
 
     }
 

@@ -1,8 +1,8 @@
 $(document).ready(function(){
-
     var input = $('#todo');
     var msg   = $('#danger').hide();
     var list  = $('#list');
+    var rows  = $('#list tr');
 
     // see if the field is empty
     function checkEmpty(event)
@@ -11,8 +11,8 @@ $(document).ready(function(){
         event.preventDefault();
         if( inputValue != '')
         {
-            inputValue.val('');
             makeAjaxRequest(inputValue);
+            inputValue = '';
         }
         else
         {
@@ -32,18 +32,30 @@ $(document).ready(function(){
             dataType: "json",
             success: function(data)
             {
-                $.each(data.pop(), function(index, value){
-                   list.append('<tr></tr><td>'+ '<input type="checkbox" value='+ ''+ value.id +''+ '' + '</td>' +
-                              '<td>' + value.text + '</td>' + '<td><button type="button" class="btn btn-danger"> delete'+'</button></td>'
+                if(data.length == 0)
+                {
+                      list.append('<div class="alert alert-danger" role="alert">'+
+                                   '<strong> No tasks available! </strong>'+
+                                   '</div>');
+                }
+                else
+                {
+                    $.each(data, function(index, value){
+                        rows.remove();
+                        list.append('<tr><td>'+ '<input type="checkbox" value='+ ''+ value.id +''+ '' + '</td>' +
+                            '<td>' + value.text + '</td>' + '<td><button type="button" class="btn btn-danger"> delete'+'</button></td></tr>'
 
-                   );
-                })
+                        );
+                    })
+                }
+
+
             }
 
         });
     }
 
-    $.
+
 
 
 
