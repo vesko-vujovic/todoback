@@ -3,10 +3,25 @@ $(document).ready(function(){
     var input = $('#todo').hide();
     var msg   = $('#danger');
 
-
-    function checkEmpty()
+    // see if the field is empty
+    function checkEmpty(event)
     {
-        if(input.val() != '')
+        var inputValue = input.val()
+        event.preventDefault();
+        if( inputValue != '')
+        {
+            makeAjaxRequest(inputValue);
+        }
+        else
+        {
+            msg.show();
+        }
+
+    }
+
+    //make ajax call
+    function makeAjaxRequest(input)
+    {
 
     }
 
