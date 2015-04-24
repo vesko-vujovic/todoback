@@ -29,5 +29,10 @@ class AjaxController extends \BaseController {
 
     }
 
+    public function deleteData()
+    {
+
+    }
+
 
 }

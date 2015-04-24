@@ -20,7 +20,6 @@ $(document).ready(function(){
         }
 
     }
-
     //make ajax call
     function makeAjaxRequest(input)
     {
@@ -42,8 +41,10 @@ $(document).ready(function(){
                 {
                     $('#msg').hide();
                     $.each(data, function(index, value){
-                        list.prepend('<tr id="row"><td>'+ '<input type="checkbox" value='+ ''+ value.id +''+ '' + '</td>' +
-                            '<td>' + value.text + '</td>' + '<td><button type="button" class="del btn btn-danger"> delete'+'</button></td></tr>'
+                        list.prepend('<tr id="row"><td>'+ '<input type="checkbox" value='+ value.id +' > </td>' +
+                            '<td>' + value.text + '</td>' +
+                            '<td><button type="button" data-toggle="modal" data-target=".bs-example-modal-sm"  class="del btn btn-danger"> ' +
+                            'delete </button></td></tr>'
                         );
                     })
                 }
@@ -54,9 +55,17 @@ $(document).ready(function(){
         });
     }
 
+    function deleteTask()
+    {
+
+    }
+
 
     //event on click
     $('#add').on('click', checkEmpty);
+
+    //event to delete task
+    $('.del').on('clik',deleteTask);
 
     //on load event
     $(function() {
@@ -70,11 +79,13 @@ $(document).ready(function(){
             else
             {
                 $.each(data, function(index, value) {
-                    list.prepend('<tr id="row"><td>'+ '<input type="checkbox" value='+ ''+ value.id +''+ '' + '</td>' +
-                    '<td>' + value.text + '</td>' + '<td><button type="button" class="btn btn-danger"> delete'+'</button></td></tr>');
+                    list.prepend( '<tr id="row"><td>'+ '<input type="checkbox" value='+ value.id +' > </td>' +
+                        '<td>' + value.text + '</td>' +
+                        '<td><button type="button" data-toggle="modal" data-target=".bs-example-modal-sm"  class="del btn btn-danger"> ' +
+                        'delete </button></td></tr>'
+                    );
                 });
             }
-
         });
     });
 

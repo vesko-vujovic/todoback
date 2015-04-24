@@ -17,6 +17,8 @@ Route::get('/ajax/post/data/',['as' => 'ajaxpost', 'uses' => 'AjaxController@pos
 
 Route::get('/ajax/get/data/',['as' => 'ajaxget', 'uses' => 'AjaxController@getData']);
 
+Route::get('/ajax/delete/data/',['as' => 'ajaxget', 'uses' => 'AjaxController@deleteData']);
+
 
 
 

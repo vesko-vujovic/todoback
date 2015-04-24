@@ -40,8 +40,22 @@
        <p><button type="button" class="btn btn-danger">Clear Finished</button></p>
    </div>
   </div>
-
 </div>
+
+<div class="row">
+<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <h5><strong>Are you sure you wish to delete this?</strong></h5>
+      <button type="button" id="yes" value="1" class="btn btn-danger">Yes</button>
+      &nbsp;  &nbsp;  &nbsp;
+      <button type="button" id="no" value="0" class="btn btn-success">No</button>
+
+    </div>
+  </div>
+</div>
+</div>
+
 
 
 </body>
