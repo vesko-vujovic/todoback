@@ -41,9 +41,9 @@ $(document).ready(function(){
                 {
                     $('#msg').hide();
                     $.each(data, function(index, value){
-                        list.prepend('<tr id="row"><td>'+ '<input type="checkbox" value='+ value.id +' > </td>' +
+                        list.prepend('<tr><td>'+ '<input class="check"  type="checkbox" value='+ value.id +' > </td>' +
                             '<td>' + value.text + '</td>' +
-                            '<td><button type="button" data-toggle="modal" data-target=".bs-example-modal-sm"  class="del btn btn-danger"> ' +
+                            '<td><button type="button" data-toggle="modal"  class="del btn btn-danger"> ' +
                             'delete </button></td></tr>'
                         );
                     })
@@ -54,18 +54,18 @@ $(document).ready(function(){
 
         });
     }
-
     function deleteTask()
     {
 
-    }
 
+
+    }
 
     //event on click
     $('#add').on('click', checkEmpty);
 
     //event to delete task
-    $('.del').on('clik',deleteTask);
+    $('.del').click(deleteTask)
 
     //on load event
     $(function() {
@@ -79,9 +79,9 @@ $(document).ready(function(){
             else
             {
                 $.each(data, function(index, value) {
-                    list.prepend( '<tr id="row"><td>'+ '<input type="checkbox" value='+ value.id +' > </td>' +
+                    list.prepend( '<tr id="row"><td class="check">'+ '<input type="checkbox" value='+ value.id +' > </td>' +
                         '<td>' + value.text + '</td>' +
-                        '<td><button type="button" data-toggle="modal" data-target=".bs-example-modal-sm"  class="del btn btn-danger"> ' +
+                        '<td><button type="button"   class="del btn btn-danger"> ' +
                         'delete </button></td></tr>'
                     );
                 });
