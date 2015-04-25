@@ -56,8 +56,7 @@ $(document).ready(function(){
     }
     function deleteTask()
     {
-
-
+      alert('' + $("input:first", this) +'' );
 
     }
 
@@ -65,7 +64,7 @@ $(document).ready(function(){
     $('#add').on('click', checkEmpty);
 
     //event to delete task
-    $('.del').click(deleteTask)
+    $(document).on('click', '.del',deleteTask);
 
     //on load event
     $(function() {
