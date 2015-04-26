@@ -56,7 +56,7 @@ $(document).ready(function(){
     }
     function deleteTask()
     {
-      console.log($(this).parents().length);
+      console.log($('tr:parent td:first .check',this));
 
     }
 
