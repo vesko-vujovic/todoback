@@ -1,7 +1,8 @@
 $(document).ready(function(){
-    var input = $('#todo');
-    var msg   = $('#danger').hide();
-    var list  = $('#list');
+    var input        = $('#todo');
+    var msg          = $('#danger').hide();
+    var list         = $('#list');
+    var msgDel       = $('#msgdel').hide();
 
     // see if the field is empty
     function checkEmpty(event)
@@ -64,10 +65,15 @@ $(document).ready(function(){
             success: function(data)
             {
                 list.empty();
-                if(data.length !== 0)
-                {
+                msgDel.show().fadeOut(3000);
+                $.each(data, function(index, value){
+                    list.prepend('<tr><td>'+ '<input class="check"  type="checkbox" value='+ value.id +' > </td>' +
+                        '<td>' + value.text + '</td>' +
+                        '<td><button type="button" data-toggle="modal"  class="del btn btn-danger"> ' +
+                        'delete </button></td></tr>'
+                    );
+                })
 
-                }
             }
 
         });

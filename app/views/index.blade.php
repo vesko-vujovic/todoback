@@ -27,7 +27,17 @@
    </div>
   </div>
   <br><br><br>
-  <!-- row for ul list elements -->
+
+ <div class="container-fluid">
+  <div class="row">
+   <div class="col-sm-3">
+    <div id="msgdel" class="alert alert-danger" role="alert"><strong>The task was deleted</strong></div>
+    <div id="taskadded" class="alert alert-success" role="alert"><strong>The task was added</strong></div>
+   </div>
+  </div>
+
+ </div>
+
   <div class="row">
    <div class="col-md-6">
     <table class="table table-striped table-hover ">

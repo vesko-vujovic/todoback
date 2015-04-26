@@ -40,9 +40,12 @@ class AjaxController extends \BaseController {
     {
         if(Request::ajax())
         {
-           $id           =  Input::get('id');
-           $deleteTask   = Task::destroy($id);
+           $id            =  Input::get('id');
+           $task          =  Task::find($id);
+           $task->delete();
+
            return Response::json(Task::all());
+
 
         }
     }
