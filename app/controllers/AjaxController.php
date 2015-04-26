@@ -27,14 +27,6 @@ class AjaxController extends \BaseController {
 
     }
 
-    public function deleteAllCheckedData()
-    {
-        if (Request::ajax())
-        {
-
-        }
-    }
-
     public function deleteTask()
     {
         if(Request::ajax())
@@ -51,12 +43,13 @@ class AjaxController extends \BaseController {
     {
         if(Request::ajax())
         {
-            $ids            =  Input::all();
-            $ids            = $ids->toArray();
-            var_dump($ids);
+            $ids            =  Input::get('ids');
+            $obj            =  new Task();
+            $obj->deleteMultiple(json_decode($ids));
+
+            return Response::json(Task::all());
 
         }
-
     }
 
 

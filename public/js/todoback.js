@@ -91,7 +91,7 @@ $(document).ready(function(){
     function deleteGroup(ids)
     {
         $.ajax({
-            url: "/todoback/public/ajax/delete/group/",
+            url: "/todoback/public/ajax/delete/group",
             data: "ids=" + JSON.stringify(ids),
             dataType: "json",
             success: function(data)
@@ -122,16 +122,8 @@ $(document).ready(function(){
 
     }
 
-
-
-
-
     //event delete checked buttons
     $('#clear').on('click', pickUpIds);
-
-
-
-
 
     //event on click
     $('#add').on('click', checkEmpty);

@@ -28,9 +28,6 @@ Route::get('/ajax/delete/group/',['as' => 'ajaxdeletegroup', 'uses' => 'AjaxCont
 
 Route::get('/test', function (){
 
-    $var = Task::all();
-
-    var_dump($var);
-
-
+    $tasks = ["1", "2", "3"];
+    var_dump($tasks);
 });

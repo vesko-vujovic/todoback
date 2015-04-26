@@ -12,11 +12,11 @@ class Task extends \Eloquent {
 
     }
 
-    public function deleteAllTasks($passedIds)
+    public function deleteMultiple($passedIds)
     {
         foreach($passedIds as $id)
         {
-            $task          =  Task::find($id);
+            $task             =  Task::find(intval($id));
             $task->delete();
         }
 
