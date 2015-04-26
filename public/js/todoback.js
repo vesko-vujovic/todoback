@@ -56,8 +56,21 @@ $(document).ready(function(){
     }
     function deleteTask()
     {
-      console.log($('tr:parent td:first .check',this));
+       var idValue = $('td:first-child input', $(this).parents('tr')).val();
+        $.ajax({
+            url: "/todoback/public/ajax/delete/task",
+            data: "id=" + idValue,
+            dataType: "json",
+            success: function(data)
+            {
+                list.empty();
+                if(data.length !== 0)
+                {
 
+                }
+            }
+
+        });
     }
 
     //event on click

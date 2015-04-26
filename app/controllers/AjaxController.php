@@ -16,7 +16,6 @@ class AjaxController extends \BaseController {
 
             return Response::json($allRecord);
         }
-
     }
 
     public function getData()
@@ -29,13 +28,23 @@ class AjaxController extends \BaseController {
 
     }
 
-    public function deleteData()
+    public function deleteAllCheckedData()
     {
         if (Request::ajax())
         {
 
         }
+    }
 
+    public function deleteTask()
+    {
+        if(Request::ajax())
+        {
+           $id           =  Input::get('id');
+           $deleteTask   = Task::destroy($id);
+           return Response::json(Task::all());
+
+        }
     }
 
 
