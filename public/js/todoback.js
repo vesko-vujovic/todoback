@@ -56,7 +56,7 @@ $(document).ready(function(){
     }
     function deleteTask()
     {
-      alert('' + $("input:first", this) +'' );
+      console.log($(this));
 
     }
 
@@ -78,7 +78,7 @@ $(document).ready(function(){
             else
             {
                 $.each(data, function(index, value) {
-                    list.prepend( '<tr id="row"><td class="check">'+ '<input type="checkbox" value='+ value.id +' > </td>' +
+                    list.prepend( '<tr id="row"><td>'+ '<input class="check" type="checkbox" value='+ value.id +' > </td>' +
                         '<td>' + value.text + '</td>' +
                         '<td><button type="button"   class="del btn btn-danger"> ' +
                         'delete </button></td></tr>'
