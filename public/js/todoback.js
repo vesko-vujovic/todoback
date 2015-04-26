@@ -3,6 +3,7 @@ $(document).ready(function(){
     var msg          = $('#danger').hide();
     var list         = $('#list');
     var msgDel       = $('#msgdel').hide();
+    var added        = $('#taskadded').hide();
 
     // see if the field is empty
     function checkEmpty(event)
@@ -39,7 +40,7 @@ $(document).ready(function(){
                                    '</div></td></tr>');
                 }
                 else
-                {
+                {   added.show().fadeOut(4000);
                     $('#msg').hide();
                     $.each(data, function(index, value){
                         list.prepend('<tr><td>'+ '<input class="check"  type="checkbox" value='+ value.id +' > </td>' +
@@ -65,7 +66,7 @@ $(document).ready(function(){
             success: function(data)
             {
                 list.empty();
-                msgDel.show().fadeOut(3000);
+                msgDel.show().fadeOut(4000);
                 $.each(data, function(index, value){
                     list.prepend('<tr><td>'+ '<input class="check"  type="checkbox" value='+ value.id +' > </td>' +
                         '<td>' + value.text + '</td>' +
@@ -78,6 +79,28 @@ $(document).ready(function(){
 
         });
     }
+
+    function deleteChecked()
+    {
+        var ids = [];
+        var checkedValues = $('.check:checked').map(function() {
+            return this.value;
+        }).get();
+
+        console.log(checkedValues);
+
+    }
+
+
+
+
+
+    //event delete checked buttons
+    $('#clear').on('click', deleteChecked);
+
+
+
+
 
     //event on click
     $('#add').on('click', checkEmpty);

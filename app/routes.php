@@ -21,6 +21,8 @@ Route::get('/ajax/delete/data/',['as' => 'ajaxdelete', 'uses' => 'AjaxController
 
 Route::get('/ajax/delete/task/',['as' => 'ajaxdelete', 'uses' => 'AjaxController@deleteTask']);
 
+Route::get('/ajax/delete/group/',['as' => 'ajaxdeletegroup', 'uses' => 'AjaxController@deleteTaskGroup']);
+
 
 
 

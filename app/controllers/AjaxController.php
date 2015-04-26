@@ -4,7 +4,6 @@ class AjaxController extends \BaseController {
 	/**
      *Ajax request functions
      */
-
     public function postData()
     {
         if(Request::ajax())
@@ -45,10 +44,14 @@ class AjaxController extends \BaseController {
            $task->delete();
 
            return Response::json(Task::all());
-
-
         }
     }
+
+    public function  deleteTaskGroup()
+    {
+
+    }
+
 
 
 }
