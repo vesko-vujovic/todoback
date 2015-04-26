@@ -33,7 +33,7 @@ $(document).ready(function(){
                 list.empty();
                 if(data.length == 0)
                 {
-                      list.prepend('<tr colspan="3"><td><div class="alert alert-danger" role="alert">'+
+                      list.prepend('<tr><td><div class="alert alert-danger" role="alert">'+
                                    '<strong> No tasks available! </strong>'+
                                    '</div></td></tr>');
                 }
@@ -56,7 +56,7 @@ $(document).ready(function(){
     }
     function deleteTask()
     {
-      console.log($(this));
+      console.log($(this).parents().length);
 
     }
 
@@ -78,7 +78,7 @@ $(document).ready(function(){
             else
             {
                 $.each(data, function(index, value) {
-                    list.prepend( '<tr id="row"><td>'+ '<input class="check" type="checkbox" value='+ value.id +' > </td>' +
+                    list.prepend( '<tr><td>'+ '<input class="check" type="checkbox" value='+ value.id +' > </td>' +
                         '<td>' + value.text + '</td>' +
                         '<td><button type="button"   class="del btn btn-danger"> ' +
                         'delete </button></td></tr>'
