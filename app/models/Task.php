@@ -12,5 +12,15 @@ class Task extends \Eloquent {
 
     }
 
+    public function deleteAllTasks($passedIds)
+    {
+        foreach($passedIds as $id)
+        {
+            $task          =  Task::find($id);
+            $task->delete();
+        }
+
+    }
+
 
 }

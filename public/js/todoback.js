@@ -80,14 +80,45 @@ $(document).ready(function(){
         });
     }
 
-    function deleteChecked()
+    function pickUpIds()
     {
-        var ids = [];
         var checkedValues = $('.check:checked').map(function() {
             return this.value;
         }).get();
+        deleteGroup(checkedValues);
+    }
 
-        console.log(checkedValues);
+    function deleteGroup(ids)
+    {
+        $.ajax({
+            url: "/todoback/public/ajax/delete/group/",
+            data: "ids=" + JSON.stringify(ids),
+            dataType: "json",
+            success: function(data)
+            {
+                list.empty();
+                if(data.length == 0)
+                {
+                    list.prepend('<tr><td><div class="alert alert-danger" role="alert">'+
+                    '<strong> No tasks available! </strong>'+
+                    '</div></td></tr>');
+                }
+                else
+                {
+                    $('#msg').hide();
+                    $.each(data, function(index, value){
+                        list.prepend('<tr><td>'+ '<input class="check"  type="checkbox" value='+ value.id +' > </td>' +
+                            '<td>' + value.text + '</td>' +
+                            '<td><button type="button" data-toggle="modal"  class="del btn btn-danger"> ' +
+                            'delete </button></td></tr>'
+                        );
+                    })
+                }
+
+
+            }
+
+        });
 
     }
 
@@ -96,7 +127,7 @@ $(document).ready(function(){
 
 
     //event delete checked buttons
-    $('#clear').on('click', deleteChecked);
+    $('#clear').on('click', pickUpIds);
 
 
 

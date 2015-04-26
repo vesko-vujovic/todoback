@@ -49,6 +49,13 @@ class AjaxController extends \BaseController {
 
     public function  deleteTaskGroup()
     {
+        if(Request::ajax())
+        {
+            $ids            =  Input::all();
+            $ids            = $ids->toArray();
+            var_dump($ids);
+
+        }
 
     }
 
